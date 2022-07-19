@@ -45,7 +45,9 @@ function start() {
     for (let i = 0; i < 3; i++) { // dealing cards to the players
         let position = Math.floor(Math.random() * cards.length);
         playerCards.push(cards[position]);
+
         generatePlayerCard(position);
+
         aiCards.push(cards[Math.floor(Math.random() * cards.length)]);
         aiCtn.innerHTML +=
             `<div class="card card--hidden"> <div class="card__header"></div> <div class="card__body"></div> <div class="card__footer"></div>
@@ -80,7 +82,7 @@ surrenderBtn.addEventListener('click', () => { aiWon(); });
 function playerTurn() {
     if (getTotal(playerCards) < 17) {
         if (tableCards[tableCards.length - 1] == 10) {
-            generatePlayerCard((tableCards[tableCards.length - 1]) / 2); // or simply five
+            generatePlayerCard((tableCards[tableCards.length - 1])/2); // or simply five
         }
         else {
             // there is a 0 position in cardEl but there isn't a 0 value in tableCards

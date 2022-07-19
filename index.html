@@ -13,26 +13,58 @@
 </head>
 
 <body>
-    <div>
-        <div class="table">
-            <div class="cards-container" id="ai__cards-container">
+    <main class="board">
+        <header class="game-info">
+            <span>AI amount</span>
+            <h2></h2>
+            <div class="game-info__percentage">
+                <span class="game-info__percentage-label">Percentage Of Victories</span>
+                <div><span>Player</span> X <span>AI</span></div>
+                <div class="game-indo__percentage-container">
+                    <span class="game-info__player-victories-percentage"></span>
+                    <span class="game-info__ai-victories-percentage"></span>
+                </div>
             </div>
-            <div class="table__cards-container">
+        </header>
+        <div id="turn-bet">
+            
+        </div>
+        <section class="table">
+            <div class="table__actions">
+                <button class="table__action-tutorial">
+                    <i class="ri-information-fill"></i>
+                    <span>Tutorial</span>
+                </button>
+                <button class="table__action-surrend">
+                    <i class="ri-flag-fill"></i>
+                    <span>Surrend</span>
+                </button>
+                <button class="table__action-pass">
+                    <i class="ri-share-forward-2-line"></i>
+                    <span>Pass</span>
+                </button>
+                <button class="table__action-hit">
+                    <i class="ri-file-2-line"></i>
+                    <span>Ask For A Card</span>
+                </button>
             </div>
-            <div class="cards-container" id="player__cards-container">
+        </section>
+        <section class="player">
+            <div class="player__message">
+                <p class="player__message-text"></p>
+                <button class="player__message-reject"></button>
+                <button class="player__message-accept"></button>
+                <input type="text" class="player__message-bet">
             </div>
-        </div>
-        <div class="button-area">
-            <button id="button__surrender">Surrender</button>
-            <button id="button__stay">Stay</button>
-            <button id="button__hit">Hit</button>
-        </div>
-        <div class="score-container">
-            <span id="player-wins"></span>
-            <span id="ai-wins"></span>
-        </div>
-    </div>
+            <div class=player__bet">
+                <span>Amount To Bet</span>
+                <h2></h2>
+                <button>Raise Bet</button>
+            </div>
+        </section>
+    </main>
 </body>
-<script src="script.js"></script>
+<!--<script src="script.js"></script>-->
+<script type="module" src="game.js"></script>
 
 </html>
