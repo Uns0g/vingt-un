@@ -1,0 +1,48 @@
+.form{
+	padding: 2rem;
+	border: 2px double #1F2270;
+	border-radius: 10px;
+	background-color: #FFF;
+}
+
+.form__label{
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+	text-transform: capitalize;
+}
+
+.form__input{ 
+	width: 100%;
+	font-size: 1.2em;
+}
+
+.form__new-bet{
+	margin: 1em 0;
+	text-align: center;
+}
+
+.form__buttons-container{
+	display: flex;
+	justify-content: space-between;
+	width: 80%;
+	margin: auto;
+}
+
+.form__button{
+	width: 40%;
+	padding: 4px;
+	border-radius: 10px;
+	color: #FFF;
+	text-align: center;
+}
+
+#return{
+	background-color: #AD3532; 
+	font-size: 1.3em;
+}
+
+#submit{
+	background-color: #1F2270;
+	font-size: 1.6em;
+}

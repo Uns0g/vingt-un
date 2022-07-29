@@ -2,69 +2,103 @@
 <html lang="en">
 
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/game_elements.css">
+    <link rel="stylesheet" type="text/css" href="styles/form.css">
+    <!--<link rel="stylesheet" href="style.css">-->
     <title>Twenty-One</title>
 </head>
 
 <body>
     <main class="board">
-        <header class="game-info">
-            <span>AI amount</span>
-            <h2></h2>
-            <div class="game-info__percentage">
-                <span class="game-info__percentage-label">Percentage Of Victories</span>
-                <div><span>Player</span> X <span>AI</span></div>
-                <div class="game-indo__percentage-container">
-                    <span class="game-info__player-victories-percentage"></span>
-                    <span class="game-info__ai-victories-percentage"></span>
+        <header class="info" id="ai-info">
+            <ul class="info__box">
+                <li class="info__header">AI Amount</li>
+                <li class="info__amount">1000</li>
+            </ul>
+            <ul class="info__box">
+                <li class="info__header">Victories (%)</li>
+                <li class="info__body"><span>PLAYER</span><span>AI</span></li>
+                <li class="info__rate-container">
+                    <span class="info__winning-rate" id="player-rate">000%</span>
+                    <span class="info__winning-rate" id="ai-rate">000%</span>
+                </li>
+            </ul>
+        </header>
+        <section class="table">
+            <div class="table__side" id="ai-side">
+
+            </div>
+            <div class="table__cards"></div>
+            <div class="table__side" id="player-side">
+                <div class="card">
+                    <div class="card__header"></div>
+                    <div class="card__body"></div>
+                    <div class="card__footer"></div>
                 </div>
             </div>
-        </header>
-        <div id="turn-bet">
-            
-        </div>
-        <section class="table">
-            <div class="table__actions">
-                <button class="table__action-tutorial">
-                    <i class="ri-information-fill"></i>
-                    <span>Tutorial</span>
+            <button class="table__menu">
+                <i class="ri-menu-fill"></i>
+                <i class="ri-close-fill hidden"></i>
+            </button>
+            <div class="table__actions hidden">
+                <button class="table__action-button" id="tutorial">
+                    <i class="ri-information-line table__action-button-icon"></i>
+                    <span class="table__action-button-text">Tutorial</span>
                 </button>
-                <button class="table__action-surrend">
-                    <i class="ri-flag-fill"></i>
-                    <span>Surrend</span>
+                <button class="table__action-button" id="surrend">
+                    <i class="ri-flag-fill table__action-button-icon"></i>
+                    <span class="table__action-button-text">Surrend</span>
                 </button>
-                <button class="table__action-pass">
-                    <i class="ri-share-forward-2-line"></i>
-                    <span>Pass</span>
+                <button class="table__action-button" id="pass">
+                    <i class="ri-share-forward-2-line table__action-button-icon"></i>
+                    <span class="table__action-button-text">Pass</span>
                 </button>
-                <button class="table__action-hit">
-                    <i class="ri-file-2-line"></i>
-                    <span>Ask For A Card</span>
+                <button class="table__action-button" id="raise-bet">
+                    <i class="ri-arrow-up-circle-fill table__action-button-icon"></i>
+                    <span class="table__action-button-text">Raise Bet</span>
+                </button>
+                <button class="table__action-button" id="ask-for-card">
+                    <i class="ri-file-2-line table__action-button-icon"></i>
+                    <span class="table__action-button-text">Ask Card</span>
                 </button>
             </div>
         </section>
-        <section class="player">
-            <div class="player__message">
-                <p class="player__message-text"></p>
-                <button class="player__message-reject"></button>
-                <button class="player__message-accept"></button>
-                <input type="text" class="player__message-bet">
+        <footer class="info" id="player-info">
+            <ul class="info__box">
+                <li class="info__header info__header--player">Your Amount</li >
+                <li class="info__amount">1000</li>
+            </ul>
+            <div class="info__message">
+                <div class="info__message-buttons hidden">
+                    <button class="info__message-reject">No</button>
+                    <button class="info__message-accept">Yes</button>
+                </div>
+                <textarea class="info__message-text"></textarea>
             </div>
-            <div class=player__bet">
-                <span>Amount To Bet</span>
-                <h2></h2>
-                <button>Raise Bet</button>
-            </div>
-        </section>
+            <ul class="info__box">
+                <li class="info__header">Current Bet</li>
+                <li class="info__amount"><strong id="turn-bet">0</strong></li>
+            </ul>
+        </footer>
     </main>
+    <div class="background hidden">
+        <form class="form">
+            <h2 class="form__label">Raise current turn's bet</h2>
+            <input type="number" class="form__input" placeholder="Value of the raise" step="10" min="0" max="990">
+            <p class="form__new-bet">New bet = <span class="form__new-bet-value"></span></p>
+            <div class="form__buttons-container">
+                <button type="reset" class="form__button" id="return">Return</button>
+                <button class="form__button" id="submit">Submit</button>
+            </div>
+        </form>
+    </div>
 </body>
 <!--<script src="script.js"></script>-->
-<script type="module" src="game.js"></script>
+<script type="text/javascript" src="scripts/elements.js"></script>
+<script type="module" src="scripts/game.js"></script>
 
 </html>

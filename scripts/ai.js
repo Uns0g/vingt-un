@@ -21,17 +21,6 @@ export default class Ai extends P{
 
 		return shouldSurrend;
 	}
-
-	randomlyDecide(something, boost){
-		let randomNumber = Math.floor(Math.random()*10) + boost;
-
-		let decision;
-		randomNumber > 5 ? decision = true : decision = false;
-		
-		console.log('The decision to '+something+' is: '+decision.toString());
-
-		return decision;
-	}
 	
 	tryBet(player){
 		let shouldAiBet = checkCurrentSituation();
@@ -50,16 +39,27 @@ export default class Ai extends P{
 		let answer = false;
 
 		if(this.amount > 1300){
-			answer = randomlyDecide('answer if AI should bet',1);
+			answer = this.randomlyDecide('answer if AI should bet',1);
 		}
 		else if(this.amount < 600){
-			answer = randomlyDecide('answer if AI should bet',2);
+			answer = this.randomlyDecide('answer if AI should bet',2);
 		} 
 		else{
-			answer = randomlyDecide('answer if AI should bet',0);
+			answer = this.randomlyDecide('answer if AI should bet',0);
 		}
 
 		return answer;
+	}
+
+	randomlyDecide(something, boost){
+		let randomNumber = Math.floor(Math.random()*10) + boost;
+
+		let decision;
+		randomNumber > 5 ? decision = true : decision = false;
+		
+		console.log('The decision to '+something+' is: '+decision.toString());
+
+		return decision;
 	}
 
 	decideBetValue(){
@@ -68,7 +68,7 @@ export default class Ai extends P{
 		for(let turn = 1; turn <= 3; turn++){
 			let randomIndex = Math.floor(Math.random() * 9);
 			
-			randomlyDecide('increase the value of the character on the position ' + String(turn),-turn) == true ? betValue += ALGARISMS[randomIndex+1] : betValue += ALGARISMS[randomIndex];
+			this.randomlyDecide('increase the value of the character on the position ' + String(turn),-turn) == true ? betValue += ALGARISMS[randomIndex+1] : betValue += ALGARISMS[randomIndex];
 		}
 
 		betValue = parseInt(betValue);

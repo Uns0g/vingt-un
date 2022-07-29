@@ -1,0 +1,235 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body, .board, button{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+body{
+	--cold: #1F2270;
+	--warm: #AD3532;
+	--golden: #DAA520;
+	position: relative;
+	min-height: 100vh;
+	background: #0b0b0d;
+	background: -webkit-linear-gradient(0deg, #0B0B0D, #1F2270 50%, #00011B 100%);
+	background: linear-gradient(0deg, #0B0B0D 0%, #1F2270 50%, #00011B 100%);
+	font-family: Gill Sans Extra Bold, sans-serif;
+}
+
+button{ cursor: pointer;}
+
+.board{
+	width: 70%;
+	border: 3px double #000;
+	border-radius: 10px;
+	background-color: #000;
+}
+
+.info{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.info__box{ 
+	width: 15%; 
+	border-radius: 10px;
+	background-color: #FFF; 
+	text-align: center;
+	list-style: none;
+}
+
+.info__header{
+	display: block;
+	width: 100%;
+	padding: .3rem;
+	border-radius: 10px 10px 0 0;
+	background-color: var(--warm);
+	color: #FFF;
+	font-size: 1.3rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+.info__box:last-of-type .info__header{
+	background: var(--golden);
+	background: -webkit-linear-gradient(0deg, var(--golden) 0%, #CD7F32 100%);
+	background: linear-gradient(0deg, var(--golden) 0%, #CD7F32 100%);
+	color: initial;
+}
+
+.info__body, .info__rate-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.info__amount{ 
+	line-height: 1.8em;
+	font-size: 1.5rem;
+}
+
+.info__body{
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+
+.info__body span{ 
+	display: inline-block;
+	width: 50%;
+	background-color: var(--cold);
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+}
+
+.info__body span:last-of-type{ 
+	background-color: var(--warm); 
+	border-left: 1px solid #000;
+}
+
+.info__winning-rate{
+	display: inline-block;
+	width: 50%;
+	font-size: 1.2rem;
+}
+
+.table{
+	position: relative;
+	width: 100%;
+	height: 70vh;
+	border-radius: 10px;
+	background-image: url('https://images.unsplash.com/photo-1601370690183-1c7796ecec61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+}
+
+/* menu */
+.table__menu{
+	position: absolute;
+	bottom: 5px;
+	right: 0;
+	background-color: var(--cold);
+	color: #FFF;
+	border: 3px double #000;
+	border-radius: 5px;
+	font-size: 3rem;
+}
+.table__menu:active{ opacity: .9;}
+
+.table__menu--close{
+	background-color: var(--warm);
+}
+
+.table__actions{
+	position: absolute;
+	bottom: 0;
+	right: 4em;
+	width: 100%;
+	display: flex;
+	column-gap: 1em;
+	flex-direction: space-between;
+	justify-content: flex-end;
+	z-index: 1;
+}
+
+.table__action-button{ 
+	flex-basis: 6rem;
+	border: 2px solid #000;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+.table__action-button-icon{ font-size: 3em;}
+
+.table__action-button-text{ font-size: 1.4em;}
+
+#tutorial{ background-color: #FFF;}
+#tutorial:hover{ background-color: #E7E7E7;} 
+
+#surrend{ background-color: #000; color: #FFF;}
+#surrend:hover{ color: #E7E7E7;}
+#surrend:active{ opacity: .9;}
+
+#pass{ background-color: var(--warm);}
+#pass:hover{ background-color: #862927;}
+#pass:active{ border-style: inset;}
+
+#raise-bet{ background-color: var(--golden);}
+#raise-bet:active{ border-color: #CD7F32; color: #FFF;}
+
+#ask-for-card{ 
+	border-color: #FFF;
+	background-color: var(--cold);
+	color: #FFF; 
+}
+#ask-for-card:hover{ background-color: #141548;}
+#ask-for-card:active{ border: 2px outset #000;}
+
+.info__header--player{ background-color: var(--cold);}
+
+.info__message{ position: relative; width: 60%;}
+
+.info__message-send{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: .4em;
+	font-size: 1.5em;
+	background-color: var(--cold);
+	color: #FFF;
+}
+
+.info__message-accept, .info__message-reject{
+	position: absolute;
+	bottom: 2px;
+	padding: .3em 1.2em;
+	border-radius: 5px;
+	border-color: #000;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+.info__message-reject{
+	left: 30%;
+	background-color: var(--warm);
+	color: #FFF;
+}
+
+.info__message-accept{
+	right: 30%;
+	background-color: var(--golden);
+}
+
+.info__message-text{
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	border: 1px inset #E7E7E7;
+	background-color: #FFF;
+	color: initial;
+	font-size: 2em;
+	text-align: initial;
+	resize: none;
+}
+
+.background{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+	background-color: #000;
+	opacity: .8;
+	z-index: 1;
+}
+
+.hidden{ display: none;}
